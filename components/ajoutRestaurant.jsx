@@ -1,9 +1,11 @@
 import { Field, Formik } from "formik";
+import { validationSchemaRestaurant } from "@/utils/validationSchema";
+
 export const FormRestaurant = () => (
   <Formik
-  // validationSchema={validationSchema}
-  // initialValues={initialValues}
-  // onSubmit={handleSubmit}
+    validationSchema={validationSchemaRestaurant}
+    // initialValues={initialValues}
+    // onSubmit={handleSubmit}
   >
     <form className="text-2xl my-2">
       <div className="flex justify-between">

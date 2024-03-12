@@ -1,9 +1,10 @@
 import { Field, Formik } from "formik";
+import { validationSchemaMusee } from "@/utils/validationSchema";
 export const FormMusee = () => (
   <Formik
-  // validationSchema={validationSchema}
-  // initialValues={initialValues}
-  // onSubmit={handleSubmit}
+    validationSchema={validationSchemaMusee}
+    // initialValues={initialValues}
+    // onSubmit={handleSubmit}
   >
     <form className="text-2xl my-2">
       <div className="flex justify-between">
@@ -52,7 +53,7 @@ export const FormMusee = () => (
       <div className="flex justify-between">
         <p>Type d'art</p>
         <Field
-          name="courant"
+          name="typeart"
           component="input"
           placeholder="Peinture, sculpture ..."
         />
