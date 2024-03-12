@@ -1,6 +1,7 @@
 import { Field, Formik } from "formik"
 import { validationSchemaParc } from "@/utils/validationSchema"
 import { initialValuesParc } from "@/utils/initialValues"
+import { ButtonForm } from "@/components/buttonForm"
 
 // eslint-disable-next-line max-lines-per-function
 export const FormParc = () => (
@@ -75,6 +76,7 @@ export const FormParc = () => (
             ))}
         </Field>
       </div>
+      <ButtonForm />
     </form>
   </Formik>
 )

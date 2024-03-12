@@ -2,6 +2,7 @@
 import { Field, Formik } from "formik"
 import { validationSchemaMusee } from "@/utils/validationSchema"
 import { initialValuesMusee } from "@/utils/initialValues"
+import { ButtonForm } from "@/components/buttonForm"
 
 export const FormMusee = () => (
   <Formik
@@ -75,6 +76,7 @@ export const FormMusee = () => (
           ))}
         </Field>
       </div>
+      <ButtonForm />
     </form>
   </Formik>
 )

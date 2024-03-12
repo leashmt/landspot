@@ -2,6 +2,7 @@
 import { Field, Formik } from "formik"
 import { validationSchemaBar } from "@/utils/validationSchema"
 import { initialValuesBar } from "@/utils/initialValues"
+import { ButtonForm } from "@/components/buttonForm"
 
 export const FormBar = () => (
   <Formik
@@ -65,6 +66,7 @@ export const FormBar = () => (
             ))}
         </Field>
       </div>
+      <ButtonForm />
     </form>
   </Formik>
 )
