@@ -6,7 +6,7 @@ import { typeofspot } from "@/utils/typeofspot"
 import { Field, Formik } from "formik"
 import { useState } from "react"
 
-const pageajout = () => {
+const PageAjout = () => {
   const [typeofform, settypeofform] = useState("Choisir un type de spot")
   const handleSubmitType = () => {}
   const initialValuesType = {
@@ -52,4 +52,4 @@ const pageajout = () => {
   )
 }
 
-export default pageajout
+export default PageAjout

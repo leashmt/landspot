@@ -3,12 +3,13 @@ import { Field, Formik } from "formik"
 import { validationSchemaBar } from "@/utils/validationSchema"
 import { initialValuesBar } from "@/utils/initialValues"
 import { ButtonForm } from "@/components/buttonForm"
+import { handleSubmitBar } from "@/utils/handleSubmit"
 
 export const FormBar = () => (
   <Formik
     validationSchema={validationSchemaBar}
     initialValues={initialValuesBar}
-    // onSubmit={handleSubmit}
+    onSubmit={handleSubmitBar}
   >
     <form className="text-2xl my-2">
       <div className="flex justify-between">

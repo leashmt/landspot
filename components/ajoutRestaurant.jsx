@@ -1,16 +1,17 @@
 /* eslint-disable max-lines-per-function */
-import { Field, Formik } from "formik"
+import { Field, Formik, Form } from "formik"
 import { validationSchemaRestaurant } from "@/utils/validationSchema"
 import { initialValuesRestaurant } from "@/utils/initialValues"
 import { ButtonForm } from "@/components/buttonForm"
+import { handleSubmitRestaurant } from "@/utils/handleSubmit"
 
 export const FormRestaurant = () => (
   <Formik
     validationSchema={validationSchemaRestaurant}
     initialValues={initialValuesRestaurant}
-    // onSubmit={handleSubmit}
+    onSubmit={handleSubmitRestaurant}
   >
-    <form className="text-2xl my-2">
+    <Form className="text-2xl my-2">
       <div className="flex justify-between">
         <p>Nom du restaurant</p>
         <Field name="name" component="input" placeholder="Nom du restaurant" />
@@ -75,6 +76,6 @@ export const FormRestaurant = () => (
         </Field>
       </div>
       <ButtonForm />
-    </form>
+    </Form>
   </Formik>
 )

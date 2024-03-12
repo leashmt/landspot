@@ -2,13 +2,14 @@ import { Field, Formik } from "formik"
 import { validationSchemaParc } from "@/utils/validationSchema"
 import { initialValuesParc } from "@/utils/initialValues"
 import { ButtonForm } from "@/components/buttonForm"
+import { handleSubmitParct } from "@/utils/handleSubmit"
 
 // eslint-disable-next-line max-lines-per-function
 export const FormParc = () => (
   <Formik
     validationSchema={validationSchemaParc}
     initialValues={initialValuesParc}
-    // onSubmit={handleSubmit}
+    onSubmit={handleSubmitParct}
   >
     <form className="text-2xl my-2">
       <div className="flex justify-between">
