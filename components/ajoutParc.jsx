@@ -1,10 +1,12 @@
-import { Field, Formik } from "formik";
-import { validationSchemaParc } from "@/utils/validationSchema";
+import { Field, Formik } from "formik"
+import { validationSchemaParc } from "@/utils/validationSchema"
+import { initialValuesParc } from "@/utils/initialValues"
 
+// eslint-disable-next-line max-lines-per-function
 export const FormParc = () => (
   <Formik
     validationSchema={validationSchemaParc}
-    // initialValues={initialValues}
+    initialValues={initialValuesParc}
     // onSubmit={handleSubmit}
   >
     <form className="text-2xl my-2">
@@ -75,4 +77,4 @@ export const FormParc = () => (
       </div>
     </form>
   </Formik>
-);
+)

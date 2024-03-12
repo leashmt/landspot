@@ -1,10 +1,12 @@
-import { Field, Formik } from "formik";
-import { validationSchemaRestaurant } from "@/utils/validationSchema";
+/* eslint-disable max-lines-per-function */
+import { Field, Formik } from "formik"
+import { validationSchemaRestaurant } from "@/utils/validationSchema"
+import { initialValuesRestaurant } from "@/utils/initialValues"
 
 export const FormRestaurant = () => (
   <Formik
     validationSchema={validationSchemaRestaurant}
-    // initialValues={initialValues}
+    initialValues={initialValuesRestaurant}
     // onSubmit={handleSubmit}
   >
     <form className="text-2xl my-2">
@@ -63,7 +65,7 @@ export const FormRestaurant = () => (
       </div>
       <div className="flex justify-between my-2">
         <p>Rapport qualité/prix</p>
-        <Field name="qualité" placeholder="Rapport qualité/prix" as="select">
+        <Field name="qualite" placeholder="Rapport qualité/prix" as="select">
           {["5", "4", "3", "2", "1"].map((typeText, index) => (
             <option key={index} value={typeText}>
               {typeText}
@@ -73,4 +75,4 @@ export const FormRestaurant = () => (
       </div>
     </form>
   </Formik>
-);
+)

@@ -1,9 +1,12 @@
-import { Field, Formik } from "formik";
-import { validationSchemaMusee } from "@/utils/validationSchema";
+/* eslint-disable max-lines-per-function */
+import { Field, Formik } from "formik"
+import { validationSchemaMusee } from "@/utils/validationSchema"
+import { initialValuesMusee } from "@/utils/initialValues"
+
 export const FormMusee = () => (
   <Formik
     validationSchema={validationSchemaMusee}
-    // initialValues={initialValues}
+    initialValues={initialValuesMusee}
     // onSubmit={handleSubmit}
   >
     <form className="text-2xl my-2">
@@ -74,4 +77,4 @@ export const FormMusee = () => (
       </div>
     </form>
   </Formik>
-);
+)

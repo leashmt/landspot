@@ -1,18 +1,17 @@
-import { FormBar } from "@/components/ajoutBar";
-import { FormMusee } from "@/components/ajoutMusee";
-import { FormParc } from "@/components/ajoutParc";
-import { FormRestaurant } from "@/components/ajoutRestaurant";
-import { typeofspot } from "@/utils/typeofspot";
-import { Field, Formik } from "formik";
-import { useState } from "react";
+import { FormBar } from "@/components/ajoutBar"
+import { FormMusee } from "@/components/ajoutMusee"
+import { FormParc } from "@/components/ajoutParc"
+import { FormRestaurant } from "@/components/ajoutRestaurant"
+import { typeofspot } from "@/utils/typeofspot"
+import { Field, Formik } from "formik"
+import { useState } from "react"
 
 const pageajout = () => {
-  const [typeofform, settypeofform] = useState("Choisir un type de spot");
-  const handleSubmitType = () => {};
-
+  const [typeofform, settypeofform] = useState("Choisir un type de spot")
+  const handleSubmitType = () => {}
   const initialValuesType = {
     type: typeofform,
-  };
+  }
 
   return (
     <div className="flex justify-center my-32">
@@ -27,8 +26,7 @@ const pageajout = () => {
                 as="select"
                 className="text-xl w-1/2"
                 onChange={(event) => {
-                  console.log("Spot sélectionné :", event.target.value);
-                  settypeofform(event.target.value);
+                  settypeofform(event.target.value)
                 }}
                 value={typeofform}
               >
@@ -51,7 +49,7 @@ const pageajout = () => {
         {typeofform === "Musee" && <FormMusee />}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default pageajout;
+export default pageajout
