@@ -32,18 +32,24 @@ export const FormRestaurant = () => (
           className="w-2/3"
         />
       </div>
+      <Field
+        name="ville"
+        component="input"
+        className="w-2/3 my-2"
+        placeholder="Ville"
+      />
       <div className="flex justify-between gap-5">
         <Field
-          name="ville"
+          name="codepostal"
           component="input"
-          placeholder="Ville"
-          className="w-2/3"
+          placeholder="Code postal"
+          className="w-1/3"
         />
         <Field
           name="pays"
           component="input"
           placeholder="Pays"
-          className="w-1/3"
+          className="w-2/3"
         />
       </div>
       <h2 className="mt-4 text-4xl mb-2">Description</h2>
@@ -58,21 +64,25 @@ export const FormRestaurant = () => (
       <div className="flex justify-between my-2">
         <p>Note du restaurant</p>
         <Field name="note" as="select">
-          {["5", "4", "3", "2", "1"].map((typeText, index) => (
-            <option key={index} value={typeText}>
-              {typeText}
-            </option>
-          ))}
+          {["Choisir une note", "5", "4", "3", "2", "1"].map(
+            (typeText, index) => (
+              <option key={index} value={typeText}>
+                {typeText}
+              </option>
+            ),
+          )}
         </Field>
       </div>
       <div className="flex justify-between my-2">
         <p>Rapport qualité/prix</p>
         <Field name="qualite" placeholder="Rapport qualité/prix" as="select">
-          {["5", "4", "3", "2", "1"].map((typeText, index) => (
-            <option key={index} value={typeText}>
-              {typeText}
-            </option>
-          ))}
+          {["Choisir une note", "5", "4", "3", "2", "1"].map(
+            (typeText, index) => (
+              <option key={index} value={typeText}>
+                {typeText}
+              </option>
+            ),
+          )}
         </Field>
       </div>
       <ButtonForm />

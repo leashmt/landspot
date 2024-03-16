@@ -13,6 +13,9 @@ export const validationSchemaRestaurant = Yup.object().shape({
     .matches(/^\S*$/u, "La cuisine ne doit contenir qu'un seul mot"),
   note: Yup.string().required("La note du restaurant est requise"),
   qualite: Yup.string().required("Le rapport qualité/prix est requis"),
+  codepostal: Yup.number()
+    .typeError("Le code postal doit être un nombre")
+    .required("Le code postal est requis"),
 })
 
 export const validationSchemaMusee = Yup.object().shape({
@@ -26,6 +29,10 @@ export const validationSchemaMusee = Yup.object().shape({
   courant: Yup.string()
     .required("Le courant artistique est requis")
     .matches(/^\S*$/u, "Le courant artistique ne doit contenir qu'un seul mot"),
+  codepostal: Yup.number()
+    .typeError("Le code postal doit être un nombre")
+    .required("Le code postal est requis"),
+  prix: Yup.string().required('Le champ "gratuit ou payant" doit être rempli'),
 })
 
 export const validationSchemaBar = Yup.object().shape({
@@ -35,6 +42,9 @@ export const validationSchemaBar = Yup.object().shape({
     .required("Le numéro est requis"),
   rue: Yup.string().required("La rue est requise"),
   ville: Yup.string().required("La ville est requise"),
+  codepostal: Yup.number()
+    .typeError("Le code postal doit être un nombre")
+    .required("Le code postal est requis"),
   pays: Yup.string().required("Le pays est requis"),
   typebar: Yup.string()
     .required("Le type de bar est requis")
@@ -54,4 +64,7 @@ export const validationSchemaParc = Yup.object().shape({
     .required("Le type de parc est requis")
     .matches(/^\S*$/u, "Le type de parc ne doit contenir qu'un seul mot"),
   prix: Yup.string().required("Le prix est requis"),
+  codepostal: Yup.number()
+    .typeError("Le code postal doit être un nombre")
+    .required("Le code postal est requis"),
 })

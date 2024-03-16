@@ -32,18 +32,24 @@ export const FormBar = () => (
           placeholder="Rue"
         />
       </div>
+      <Field
+        name="ville"
+        component="input"
+        className="w-2/3"
+        placeholder="Ville"
+      />
       <div className="flex justify-between gap-5">
         <Field
-          name="ville"
+          name="codepostal"
           component="input"
-          placeholder="Ville"
-          className="w-2/3"
+          placeholder="Code postal"
+          className="w-1/3"
         />
         <Field
           name="pays"
           component="input"
           placeholder="Pays"
-          className="w-1/3"
+          className="w-2/3"
         />
       </div>
       <h2 className="mt-4 text-4xl mb-2">Description</h2>
@@ -58,7 +64,14 @@ export const FormBar = () => (
       <div className="flex justify-between my-2">
         <p>Prix moyen des consommations</p>
         <Field name="prix" as="select">
-          {["5 - €€€€€", "4 - €€€€", "3 - €€€", "2 - €€", "1 - €"]
+          {[
+            "5 - €€€€€",
+            "4 - €€€€",
+            "3 - €€€",
+            "2 - €€",
+            "1 - €",
+            "Choisir un prix",
+          ]
             .reverse()
             .map((typeText, index) => (
               <option key={index} value={typeText}>
