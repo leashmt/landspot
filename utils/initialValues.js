@@ -1,3 +1,4 @@
+/* eslint-disable capitalized-comments */
 // export const initialValuesBar = {
 //   name: "",
 //   numero: "",

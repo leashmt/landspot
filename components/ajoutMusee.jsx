@@ -1,5 +1,5 @@
 /* eslint-disable max-lines-per-function */
-import { Field, Formik } from "formik"
+import { Field, Formik, Form } from "formik"
 import { validationSchemaMusee } from "@/utils/validationSchema"
 import { initialValuesMusee } from "@/utils/initialValues"
 import { ButtonForm } from "@/components/buttonForm"
@@ -15,7 +15,7 @@ export const FormMusee = () => {
       initialValues={initialValuesMusee}
       onSubmit={handleSubmitMusee}
     >
-      <form className="text-2xl my-2">
+      <Form className="text-2xl my-2">
         <div className="flex justify-between">
           <p>Nom du musée</p>
           <Field name="name" component="input" placeholder="Nom du musée" />
@@ -114,7 +114,7 @@ export const FormMusee = () => {
           </div>
         )}
         <ButtonForm />
-      </form>
+      </Form>
     </Formik>
   )
 }

@@ -1,8 +1,8 @@
-import { Field, Formik } from "formik"
+import { Field, Formik, Form } from "formik"
 import { validationSchemaParc } from "@/utils/validationSchema"
 import { initialValuesParc } from "@/utils/initialValues"
 import { ButtonForm } from "@/components/buttonForm"
-import { handleSubmitParct } from "@/utils/handleSubmit"
+import { handleSubmitParc } from "@/utils/handleSubmit"
 import { useState } from "react"
 
 // eslint-disable-next-line max-lines-per-function
@@ -13,9 +13,9 @@ export const FormParc = () => {
     <Formik
       validationSchema={validationSchemaParc}
       initialValues={initialValuesParc}
-      onSubmit={handleSubmitParct}
+      onSubmit={handleSubmitParc}
     >
-      <form className="text-2xl my-2">
+      <Form className="text-2xl my-2">
         <div className="flex justify-between">
           <p>Nom du parc</p>
           <Field name="name" component="input" placeholder="Nom du spot" />
@@ -112,7 +112,7 @@ export const FormParc = () => {
           </div>
         )}
         <ButtonForm />
-      </form>
+      </Form>
     </Formik>
   )
 }

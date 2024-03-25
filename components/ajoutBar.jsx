@@ -1,5 +1,5 @@
 /* eslint-disable max-lines-per-function */
-import { Field, Formik } from "formik"
+import { Field, Formik, Form } from "formik"
 import { validationSchemaBar } from "@/utils/validationSchema"
 import { initialValuesBar } from "@/utils/initialValues"
 import { ButtonForm } from "@/components/buttonForm"
@@ -11,7 +11,7 @@ export const FormBar = () => (
     initialValues={initialValuesBar}
     onSubmit={handleSubmitBar}
   >
-    <form className="text-2xl my-2">
+    <Form className="text-2xl my-2">
       <div className="flex justify-between">
         <p>Nom du bar</p>
         <Field name="name" component="input" placeholder="Nom du bar" />
@@ -81,6 +81,6 @@ export const FormBar = () => (
         </Field>
       </div>
       <ButtonForm />
-    </form>
+    </Form>
   </Formik>
 )
