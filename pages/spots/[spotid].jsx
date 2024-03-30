@@ -1,8 +1,8 @@
 import axios from "axios"
 
-export const getServerSideProps = async ({ params: { spotId } }) => {
+export const getServerSideProps = async ({ params: { spotid } }) => {
   const { data: spot } = await axios(
-    `http://localhost:3000/api/landspot/${spotId}`,
+    `http://localhost:3000/api/landspot/${spotid}`,
   )
 
   return {

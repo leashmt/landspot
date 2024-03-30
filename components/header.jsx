@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "next/link"
 export const Header = () => (
   <header className="p-2">
     <div
@@ -32,4 +32,4 @@ export const Header = () => (
       </div>
     </div>
   </header>
-);
+)
