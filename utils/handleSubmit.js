@@ -4,22 +4,29 @@ export const handleSubmitRestaurant = async (
   { name, numero, rue, ville, pays, cuisine, note, qualite, codepostal },
   { resetForm },
 ) => {
-  resetForm()
-  const typeSpot = "Restaurant"
-  const dateajout = new Date()
-  const { data: newSpot } = await axios.post("/api/landspot", {
-    name,
-    numero,
-    rue,
-    ville,
-    pays,
-    cuisine,
-    note,
-    qualite,
-    typeSpot,
-    dateajout,
-    codepostal,
-  })
+  try {
+    resetForm()
+    const type = "Restaurant"
+    const dateajout = new Date()
+    const { data: newSpot } = await axios.post("/api/landspot", {
+      type,
+      name,
+      numero,
+      rue,
+      ville,
+      pays,
+      cuisine,
+      note,
+      qualite,
+      dateajout,
+      codepostal,
+    })
+  } catch (error) {
+    console.error(
+      "Une erreur est survenue lors de l'envoi de la requête POST :",
+      error,
+    )
+  }
 }
 
 export const handleSubmitBar = async (

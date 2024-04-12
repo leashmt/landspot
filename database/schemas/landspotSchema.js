@@ -42,7 +42,6 @@ export const landspotSchema = new Schema({
   },
   typelieu: {
     type: String,
-    require: true,
   },
   note: {
     type: String,

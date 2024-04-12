@@ -122,5 +122,14 @@ const handler = createRoute(async (req, res) => {
       res.send(newSpot)
     }
   }
+
+  if (req.method === "GET") {
+    const { type } = req.query
+    const todos = await LandSpotModel.find(type ? { type } : {})
+
+    res.send(todos)
+
+    return
+  }
 })
 export default handler
