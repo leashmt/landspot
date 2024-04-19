@@ -3,7 +3,7 @@ import { FormMusee } from "@/components/ajoutMusee"
 import { FormParc } from "@/components/ajoutParc"
 import { FormRestaurant } from "@/components/ajoutRestaurant"
 import { typeofspot } from "@/utils/typeofspot"
-import { Field, Formik } from "formik"
+import { Field, Formik, Form } from "formik"
 import { useState } from "react"
 
 const PageAjout = () => {
@@ -18,7 +18,7 @@ const PageAjout = () => {
       <div className="">
         <h1 className="text-7xl mb-4">AJOUT D'UN SPOT</h1>
         <Formik initialValues={initialValuesType} onSubmit={handleSubmitType}>
-          <form className="text-2xl">
+          <Form className="text-2xl">
             <div className="flex justify-between">
               <p>Type du spot</p>
               <Field
@@ -37,7 +37,7 @@ const PageAjout = () => {
                 ))}
               </Field>
             </div>
-          </form>
+          </Form>
         </Formik>
 
         {typeofform === "Choisir un type de spot" && (

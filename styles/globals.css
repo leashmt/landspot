@@ -19,3 +19,17 @@ header {
   color: #FEF9FF;
   background-color: #55D6BE;
 }
+
+#bg-blue{
+  background-color: #55D6BE;
+}
+
+#button-red {
+  color: #FEF9FF;
+  background-color: #D85651;
+}
+
+.button{
+    color: #FEF9FF;
+    background-color: #55D6BE;
+  }

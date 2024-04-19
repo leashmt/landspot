@@ -6,11 +6,11 @@ export const Header = () => (
       className="flex py-1 pl-4 pr-2 rounded-full justify-between items-center"
     >
       <div className="flex gap-2 flex-1">
-        <Link href="/" className="hover:cursor-pointer">
-          Lien 1
+        <Link href="/lstSpot" className="hover:cursor-pointer">
+          Tous les spots
         </Link>
         <Link href="/" className="hover:cursor-pointer">
-          Lien 2
+          Trouver un spot
         </Link>
         <Link href="/" className="hover:cursor-pointer">
           Lien 3
