@@ -4,29 +4,22 @@ export const handleSubmitRestaurant = async (
   { name, numero, rue, ville, pays, cuisine, note, qualite, codepostal },
   { resetForm },
 ) => {
-  try {
-    resetForm()
-    const type = "Restaurant"
-    const dateajout = new Date()
-    const { data: newSpot } = await axios.post("/api/landspot", {
-      type,
-      name,
-      numero,
-      rue,
-      ville,
-      pays,
-      cuisine,
-      note,
-      qualite,
-      dateajout,
-      codepostal,
-    })
-  } catch (error) {
-    console.error(
-      "Une erreur est survenue lors de l'envoi de la requête POST :",
-      error,
-    )
-  }
+  resetForm()
+  const type = "Restaurant"
+  const dateajout = new Date()
+  const { data: newSpot } = await axios.post("/api/landspot", {
+    type,
+    name,
+    numero,
+    rue,
+    ville,
+    pays,
+    cuisine,
+    note,
+    qualite,
+    dateajout,
+    codepostal,
+  })
 }
 
 export const handleSubmitBar = async (
@@ -34,18 +27,19 @@ export const handleSubmitBar = async (
   { resetForm },
 ) => {
   resetForm()
-  const typeSpot = "Bar"
+  const type = "Bar"
   const dateajout = new Date()
+  const typelieu = typebar
   const { data: newSpot } = await axios.post("/api/landspot", {
     name,
     numero,
     rue,
     ville,
     pays,
-    typebar,
+    typelieu,
     prix,
     codepostal,
-    typeSpot,
+    type,
     dateajout,
   })
 }
@@ -66,7 +60,7 @@ export const handleSubmitMusee = async (
   { resetForm },
 ) => {
   resetForm()
-  const typeSpot = "Musee"
+  const type = "Musee"
   const dateajout = new Date()
   const { data: newSpot } = await axios.post("/api/landspot", {
     name,
@@ -77,7 +71,7 @@ export const handleSubmitMusee = async (
     typeart,
     prix,
     codepostal,
-    typeSpot,
+    type,
     dateajout,
     courant,
     niveauPrix,
@@ -89,7 +83,7 @@ export const handleSubmitParc = async (
   { resetForm },
 ) => {
   resetForm()
-  const typeSpot = "Parc"
+  const type = "Parc"
   const dateajout = new Date()
   const { data: newSpot } = await axios.post("/api/landspot", {
     name,
@@ -101,7 +95,7 @@ export const handleSubmitParc = async (
     etatparc,
     prix,
     codepostal,
-    typeSpot,
+    type,
     dateajout,
   })
 }

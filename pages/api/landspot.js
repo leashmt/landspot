@@ -5,8 +5,9 @@ const handler = createRoute(async (req, res) => {
   console.log(req.body)
 
   if (req.method === "POST") {
-    if (req.body.typeSpot === "Restaurant") {
+    if (req.body.type === "Restaurant") {
       const {
+        type,
         name,
         numero,
         rue,
@@ -15,7 +16,6 @@ const handler = createRoute(async (req, res) => {
         cuisine,
         note,
         qualite,
-        typeSpot,
         dateajout,
         codepostal,
       } = req.body
@@ -23,7 +23,7 @@ const handler = createRoute(async (req, res) => {
       const typelieu = cuisine
       const rapportQP = qualite
       const newSpot = new LandSpotModel({
-        typeSpot,
+        type,
         dateajout,
         name,
         adresse,
@@ -33,24 +33,23 @@ const handler = createRoute(async (req, res) => {
       })
       await newSpot.save()
       res.send(newSpot)
-    } else if (req.body.typeSpot === "Bar") {
+    } else if (req.body.type === "Bar") {
       const {
         name,
         numero,
         rue,
         ville,
         pays,
-        typebar,
+        typelieu,
         prix,
         codepostal,
-        typeSpot,
+        type,
         dateajout,
       } = req.body
       const adresse = { numero, rue, ville, pays, codepostal }
-      const typelieu = typebar
       const nivPrix = prix
       const newSpot = new LandSpotModel({
-        typeSpot,
+        type,
         dateajout,
         name,
         adresse,
@@ -59,7 +58,7 @@ const handler = createRoute(async (req, res) => {
       })
       await newSpot.save()
       res.send(newSpot)
-    } else if (req.body.typeSpot === "Musee") {
+    } else if (req.body.type === "Musee") {
       const {
         name,
         numero,
@@ -69,7 +68,7 @@ const handler = createRoute(async (req, res) => {
         typeart,
         prix,
         codepostal,
-        typeSpot,
+        type,
         dateajout,
         courant,
         niveauPrix,
@@ -80,7 +79,7 @@ const handler = createRoute(async (req, res) => {
       const gratuitPayant = prix
       const courantArt = courant
       const newSpot = new LandSpotModel({
-        typeSpot,
+        type,
         dateajout,
         name,
         adresse,
@@ -91,7 +90,7 @@ const handler = createRoute(async (req, res) => {
       })
       await newSpot.save()
       res.send(newSpot)
-    } else if (req.body.typeSpot === "Parc") {
+    } else if (req.body.type === "Parc") {
       const {
         name,
         numero,
@@ -102,7 +101,7 @@ const handler = createRoute(async (req, res) => {
         etatparc,
         prix,
         codepostal,
-        typeSpot,
+        type,
         dateajout,
       } = req.body
       const adresse = { numero, rue, ville, pays, codepostal }
@@ -110,7 +109,7 @@ const handler = createRoute(async (req, res) => {
       const gratuitPayant = prix
       const etat = etatparc
       const newSpot = new LandSpotModel({
-        typeSpot,
+        type,
         dateajout,
         name,
         adresse,
