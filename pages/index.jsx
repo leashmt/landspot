@@ -3,9 +3,9 @@ import axios from "axios"
 import { useState } from "react"
 import Link from "next/link"
 import { Formik, Form, Field } from "formik"
-import { typeofspot } from "@/utils/typeofspot"
 
 const inter = Inter({ subsets: ["latin"] })
+const typeofspot = ["Aucun filtre", "Restaurant", "Musee", "Bar", "Parc"]
 
 function calculerNombreJours(dateAjout) {
   const dateAjoutObj = new Date(dateAjout)
@@ -99,7 +99,18 @@ const Home = (props) => {
             as="select"
             className="text-xl w-1/2"
             onChange={(event) => {
+              console.log("akhjqzegsfr")
+              console.log(event.target.value)
               settypeofform(event.target.value)
+
+              if (event.target.value === "Aucun filtre") {
+                setSpots(initialspots)
+              } else {
+                const spotsUPD = initialspots.filter(
+                  (spot) => spot.type === event.target.value,
+                )
+                setSpots(spotsUPD)
+              }
             }}
             value={typeofform}
           >
@@ -117,9 +128,19 @@ const Home = (props) => {
 
         return (
           <div key={spot._id} id="bg-blue" className="mx-5 my-2 p-3 rounded-lg">
-            <h3>{spot.name}</h3>
-            <p>Type : xxx</p>
-            <p className="italic"> Publié il y a {nombreJours} jours</p>
+            <h3 className="text-lg mb-1">{spot.name}</h3>
+            <p>
+              Type : <span className="font-bold">{spot.type}</span>
+            </p>
+            <p className="italic">
+              {nombreJours > 0
+                ? `Publié il y a ${nombreJours} jours`
+                : "Publié aujourd'hui"}
+            </p>
+            <p>
+              {spot.adresse.numero} {spot.adresse.rue} {spot.adresse.ville} -{" "}
+              {spot.adresse.pays}
+            </p>
             <div className="flex justify-end mt-2">
               <Link
                 href={`/spots/${spot._id}`}
