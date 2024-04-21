@@ -4,6 +4,7 @@ import { validationSchemaRestaurant } from "@/utils/validationSchema"
 import { initialValuesRestaurant } from "@/utils/initialValues"
 import { ButtonForm } from "@/components/buttonForm"
 import { handleSubmitRestaurant } from "@/utils/handleSubmit"
+import { sortofcuisine } from "@/utils/sortofcuisine"
 
 export const FormRestaurant = () => (
   <Formik
@@ -78,15 +79,14 @@ export const FormRestaurant = () => (
         <h2 className="mt-4 text-4xl mb-2">Description</h2>
         <div className="flex justify-between">
           <p>Type de cuisine</p>
-          <Field
-            name="cuisine"
-            component="input"
-            placeholder="Cuisine italienne, fast-food ..."
-          />
+          <Field name="cuisine" as="select">
+            {sortofcuisine.map((sort, index) => (
+              <option key={index + 1} value={sort}>
+                {sort}
+              </option>
+            ))}
+          </Field>
         </div>
-        {touched.cuisine && errors.cuisine && (
-          <div className="text-red-500">{errors.cuisine}</div>
-        )}
         <div className="flex justify-between my-2">
           <p>Note du restaurant</p>
           <Field name="note" as="select">

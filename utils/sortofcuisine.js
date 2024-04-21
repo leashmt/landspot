@@ -1,0 +1,18 @@
+export const sortofcuisine = [
+  "Non spécifié / autre",
+  "Brésilienne",
+  "Chinoise",
+  "Coréenne",
+  "Espagnole",
+  "Française",
+  "Grecque",
+  "Indienne",
+  "Italienne",
+  "Japonaise",
+  "Libanaise",
+  "Marocaine",
+  "Mexicaine",
+  "Thaïlandaise",
+  "Turque",
+  "Vietnamienne",
+]

@@ -8,9 +8,6 @@ export const validationSchemaRestaurant = Yup.object().shape({
   rue: Yup.string().required("La rue est requise"),
   ville: Yup.string().required("La ville est requise"),
   pays: Yup.string().required("Le pays est requis"),
-  cuisine: Yup.string()
-    .required("Le type de cuisine est requis")
-    .matches(/^\S*$/u, "La cuisine ne doit contenir qu'un seul mot"),
   note: Yup.string().required("La note du restaurant est requise"),
   qualite: Yup.string().required("Le rapport qualité/prix est requis"),
   codepostal: Yup.number()
