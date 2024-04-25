@@ -38,37 +38,57 @@ const Home = (props) => {
   const initialValuesType = {
     type: typeofform,
   }
-  const handleSubmitFilter = ({ typelieu, note, rapport, prix, GP }) => {
+  const handleSubmitFilter = ({
+    typelieu,
+    note,
+    rapport,
+    prix,
+    GP,
+    courant,
+  }) => {
     setSpots(initialspots)
     const typeSpot = initialspots.filter((spot) => spot.type === typeofform)
     setSpots(typeSpot)
 
-    console.log(typeofform)
-    console.log(spots)
-    console.log(spots)
-
     if (typelieu) {
-      const newSpot = initialspots.filter((spot) => spot.typelieu === typelieu)
+      const newSpot = initialspots.filter(
+        (spot) => spot.typelieu === typelieu && spot.type === typeofform,
+      )
       setSpots(newSpot)
     }
 
     if (note) {
-      const newSpot = initialspots.filter((spot) => spot.note === note)
+      const newSpot = initialspots.filter(
+        (spot) => spot.note === note && spot.type === typeofform,
+      )
       setSpots(newSpot)
     }
 
     if (rapport) {
-      const newSpot = initialspots.filter((spot) => spot.rapportQP === rapport)
+      const newSpot = initialspots.filter(
+        (spot) => spot.rapportQP === rapport && spot.type === typeofform,
+      )
       setSpots(newSpot)
     }
 
     if (prix) {
-      const newSpot = initialspots.filter((spot) => spot.nivPrix === prix)
+      const newSpot = initialspots.filter(
+        (spot) => spot.nivPrix === prix && spot.type === typeofform,
+      )
       setSpots(newSpot)
     }
 
     if (GP) {
-      const newSpot = initialspots.filter((spot) => spot.gratuitPayant === GP)
+      const newSpot = initialspots.filter(
+        (spot) => spot.gratuitPayant === GP && spot.type === typeofform,
+      )
+      setSpots(newSpot)
+    }
+
+    if (courant) {
+      const newSpot = initialspots.filter(
+        (spot) => spot.courantArt === courant && spot.type === typeofform,
+      )
       setSpots(newSpot)
     }
   }

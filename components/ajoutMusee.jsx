@@ -4,6 +4,8 @@ import { validationSchemaMusee } from "@/utils/validationSchema"
 import { initialValuesMusee } from "@/utils/initialValues"
 import { ButtonForm } from "@/components/buttonForm"
 import { handleSubmitMusee } from "@/utils/handleSubmit"
+import { sortofarttype } from "@/utils/sortofart"
+import { sortofcourant } from "@/utils/sortofcourant"
 
 export const FormMusee = () => (
   <Formik
@@ -74,22 +76,26 @@ export const FormMusee = () => (
         <h2 className="mt-4 text-4xl mb-2">Description</h2>
         <div className="flex justify-between">
           <p>Courant artistique</p>
-          <Field
-            name="courant"
-            component="input"
-            placeholder="Renaissance, surréalisme ..."
-          />
+          <Field name="courant" as="select">
+            {sortofcourant.map((sort, index) => (
+              <option key={index + 1} value={sort}>
+                {sort}
+              </option>
+            ))}
+          </Field>
         </div>
         {touched.courant && errors.courant && (
           <div className="text-red-500">{errors.courant}</div>
         )}
         <div className="flex justify-between">
           <p>Type d'art</p>
-          <Field
-            name="typeart"
-            component="input"
-            placeholder="Peinture, sculpture ..."
-          />
+          <Field name="typeart" as="select">
+            {sortofarttype.map((sort, index) => (
+              <option key={index + 1} value={sort}>
+                {sort}
+              </option>
+            ))}
+          </Field>
         </div>
         {touched.typeart && errors.typeart && (
           <div className="text-red-500">{errors.typeart}</div>

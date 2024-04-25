@@ -23,9 +23,6 @@ export const validationSchemaMusee = Yup.object().shape({
   rue: Yup.string().required("La rue est requise"),
   ville: Yup.string().required("La ville est requise"),
   pays: Yup.string().required("Le pays est requis"),
-  courant: Yup.string()
-    .required("Le courant artistique est requis")
-    .matches(/^\S*$/u, "Le courant artistique ne doit contenir qu'un seul mot"),
   codepostal: Yup.number()
     .typeError("Le code postal doit être un nombre")
     .required("Le code postal est requis"),
