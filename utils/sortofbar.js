@@ -1,0 +1,16 @@
+export const sortofbar = [
+  "Non spécifié / autre",
+  "Bar à cocktails",
+  "Bar à vins",
+  "Bar à bières",
+  "Bar à champagne",
+  "Bar à whisky",
+  "Bar à rhum",
+  "Bar à gin",
+  "Bar à shots",
+  "Bar à jus",
+  "Bar à smoothies",
+  "Bar à café",
+  "Bar à thé",
+  "Bar à eau",
+]

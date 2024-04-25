@@ -4,6 +4,7 @@ import { validationSchemaParc } from "@/utils/validationSchema"
 import { initialValuesParc } from "@/utils/initialValues"
 import { ButtonForm } from "@/components/buttonForm"
 import { handleSubmitParc } from "@/utils/handleSubmit"
+import { sortofparc } from "@/utils/sortofparc"
 
 export const FormParc = () => (
   <Formik
@@ -74,11 +75,13 @@ export const FormParc = () => (
         <h2 className="mt-4 text-4xl mb-2">Description</h2>
         <div className="flex justify-between">
           <p>Type de parc</p>
-          <Field
-            name="typeparc"
-            component="input"
-            placeholder="Parc floral, parc forestier ..."
-          />
+          <Field name="typeparc" as="select">
+            {sortofparc.map((sort, index) => (
+              <option key={index + 1} value={sort}>
+                {sort}
+              </option>
+            ))}
+          </Field>
         </div>
         {touched.typeparc && errors.typeparc && (
           <div className="text-red-500">{errors.typeparc}</div>

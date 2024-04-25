@@ -4,6 +4,7 @@ import { validationSchemaBar } from "@/utils/validationSchema"
 import { initialValuesBar } from "@/utils/initialValues"
 import { ButtonForm } from "@/components/buttonForm"
 import { handleSubmitBar } from "@/utils/handleSubmit"
+import { sortofbar } from "@/utils/sortofbar"
 
 export const FormBar = () => (
   <Formik
@@ -74,11 +75,13 @@ export const FormBar = () => (
         <h2 className="mt-4 text-4xl mb-2">Description</h2>
         <div className="flex justify-between">
           <p>Type de bar</p>
-          <Field
-            name="typebar"
-            component="input"
-            placeholder="Bar à vin, bar à cocktail ..."
-          />
+          <Field name="typebar" as="select">
+            {sortofbar.map((sort, index) => (
+              <option key={index + 1} value={sort}>
+                {sort}
+              </option>
+            ))}
+          </Field>
         </div>
         {touched.typebar && errors.typebar && (
           <div className="text-red-500">{errors.typebar}</div>

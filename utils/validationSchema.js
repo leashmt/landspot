@@ -43,9 +43,6 @@ export const validationSchemaBar = Yup.object().shape({
     .typeError("Le code postal doit être un nombre")
     .required("Le code postal est requis"),
   pays: Yup.string().required("Le pays est requis"),
-  typebar: Yup.string()
-    .required("Le type de bar est requis")
-    .matches(/^\S*$/u, "Le type de bar ne doit contenir qu'un seul mot"),
   prix: Yup.string().required("Le prix est requis"),
 })
 
@@ -57,9 +54,6 @@ export const validationSchemaParc = Yup.object().shape({
   rue: Yup.string().required("La rue est requise"),
   ville: Yup.string().required("La ville est requise"),
   pays: Yup.string().required("Le pays est requis"),
-  typeparc: Yup.string()
-    .required("Le type de parc est requis")
-    .matches(/^\S*$/u, "Le type de parc ne doit contenir qu'un seul mot"),
   prix: Yup.string().required("Le prix est requis"),
   codepostal: Yup.number()
     .typeError("Le code postal doit être un nombre")

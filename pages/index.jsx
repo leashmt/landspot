@@ -3,6 +3,10 @@ import axios from "axios"
 import { useState } from "react"
 import Link from "next/link"
 import { Formik, Form, Field } from "formik"
+import { FilterRestaurant } from "@/components/filter/filterRestaurant"
+import { FilterBar } from "@/components/filter/filterBar"
+import { FilterParc } from "@/components/filter/filterParc"
+import { FilterMusee } from "@/components/filter/filterMusee"
 
 const inter = Inter({ subsets: ["latin"] })
 const typeofspot = ["Aucun filtre", "Restaurant", "Musee", "Bar", "Parc"]
@@ -34,73 +38,53 @@ const Home = (props) => {
   const initialValuesType = {
     type: typeofform,
   }
+  const handleSubmitFilter = ({ typelieu, note, rapport, prix, GP }) => {
+    setSpots(initialspots)
+    const typeSpot = initialspots.filter((spot) => spot.type === typeofform)
+    setSpots(typeSpot)
+
+    console.log(typeofform)
+    console.log(spots)
+    console.log(spots)
+
+    if (typelieu) {
+      const newSpot = initialspots.filter((spot) => spot.typelieu === typelieu)
+      setSpots(newSpot)
+    }
+
+    if (note) {
+      const newSpot = initialspots.filter((spot) => spot.note === note)
+      setSpots(newSpot)
+    }
+
+    if (rapport) {
+      const newSpot = initialspots.filter((spot) => spot.rapportQP === rapport)
+      setSpots(newSpot)
+    }
+
+    if (prix) {
+      const newSpot = initialspots.filter((spot) => spot.nivPrix === prix)
+      setSpots(newSpot)
+    }
+
+    if (GP) {
+      const newSpot = initialspots.filter((spot) => spot.gratuitPayant === GP)
+      setSpots(newSpot)
+    }
+  }
 
   return (
     <>
       <h1>LANDSPOT</h1>
       <h2>Liste des derniers spot publiés</h2>
       <h4>Filtrer la recherche</h4>
-      {/* <div className="flex gap-3">
-        <button
-          className="rounded-full py-1 px-4 button"
-          onClick={() => {
-            const spotsMusee = initialspots.filter(
-              (spot) => spot.type === "musee",
-            )
-            setSpots(spotsMusee)
-          }}
-        >
-          Musée
-        </button>
-        <button
-          className="rounded-full py-1 px-4 button"
-          onClick={() => {
-            const spotsParc = initialspots.filter(
-              (spot) => spot.type === "parc",
-            )
-            setSpots(spotsParc)
-          }}
-        >
-          Parc
-        </button>
-        <button
-          className="rounded-full py-1 px-4 button"
-          onClick={() => {
-            const spotsRestaurants = initialspots.filter(
-              (spot) => spot.type === "restaurant",
-            )
-            setSpots(spotsRestaurants)
-          }}
-        >
-          Restaurant
-        </button>
-        <button
-          className="rounded-full py-1 px-4 button"
-          onClick={() => {
-            const spotsBars = initialspots.filter((spot) => spot.type === "bar")
-            setSpots(spotsBars)
-          }}
-        >
-          Bar
-        </button>
-        <button
-          className="rounded-full py-1 px-4 button"
-          onClick={() => {
-            setSpots(initialspots)
-          }}
-        >
-          Réinitialisation
-        </button>
-      </div> */}
-      <Formik initialValues={initialValuesType} onSubmit={handleSubmitType}>
+      <Formik initialValues={initialValuesType} onSubmit={handleSubmitFilter}>
         <Form>
           <Field
             name="type"
             as="select"
             className="text-xl w-1/2"
             onChange={(event) => {
-              console.log("akhjqzegsfr")
-              console.log(event.target.value)
               settypeofform(event.target.value)
 
               if (event.target.value === "Aucun filtre") {
@@ -120,6 +104,10 @@ const Home = (props) => {
               </option>
             ))}
           </Field>
+          {typeofform === "Restaurant" && <FilterRestaurant />}
+          {typeofform === "Bar" && <FilterBar />}
+          {typeofform === "Parc" && <FilterParc />}
+          {typeofform === "Musee" && <FilterMusee />}
         </Form>
       </Formik>
 

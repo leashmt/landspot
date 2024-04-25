@@ -1,0 +1,18 @@
+export const sortofparc = [
+  "Non spécifié / autre",
+  "Parc urbain",
+  "Parc national",
+  "Parc d'attractions",
+  "Parc aquatique",
+  "Parc zoologique",
+  "Parc botanique",
+  "Parc de loisirs",
+  "Parc naturel",
+  "Parc forestier",
+  "Parc de quartier",
+  "Parc de jeux",
+  "Parc paysager",
+  "Parc à thème",
+  "Parc de sculptures",
+  "Parc linéaire",
+]
