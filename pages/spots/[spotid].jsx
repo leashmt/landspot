@@ -1,4 +1,5 @@
 import axios from "axios"
+import Link from "next/link"
 
 export const getServerSideProps = async ({ params: { spotid } }) => {
   const { data: spot } = await axios(
@@ -30,8 +31,14 @@ const SpotPage = ({ spot }) => (
     {spot.courantArt && <p>Courant artistique : {spot.courantArt}</p>}
     {spot.gratuitPayant && <p>Accessibilité : {spot.gratuitPayant}</p>}
     {spot.gratuitPayant === "payant" && <p>Niveau du prix : {spot.nivPrix}</p>}
-
     {spot.etat && <p>Etat : {spot.etat}</p>}
+    <Link
+      href={`/spots/${spot._id}/edit`}
+      id="button-red"
+      className="rounded-lg p-2"
+    >
+      MODIFIER LE POST
+    </Link>
   </div>
 )
 

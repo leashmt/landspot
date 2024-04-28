@@ -1,9 +1,21 @@
+import { UpdBar } from "@/components/update/updBar"
+import { UpdMusee } from "@/components/update/updMusee"
+import { UpdParc } from "@/components/update/updParc"
+import { UpdRestaurant } from "@/components/update/updRestaurant"
+import {
+  validationSchemaBar,
+  validationSchemaMusee,
+  validationSchemaParc,
+  validationSchemaRestaurant,
+} from "@/utils/validationSchema"
 import axios from "axios"
 import { Form, Formik } from "formik"
+import { useRouter } from "next/router"
 
-export const getServerSideProps = async ({ params: { spotID } }) => {
+export const getServerSideProps = async ({ params: { spotid } }) => {
+  console.log(spotid)
   const { data: spot } = await axios(
-    `http://localhost:3000/api/landspot/${spotID}`,
+    `http://localhost:3000/api/landspot/${spotid}`,
   )
 
   return {
@@ -11,20 +23,30 @@ export const getServerSideProps = async ({ params: { spotID } }) => {
   }
 }
 const SpotEditPage = ({ spot }) => {
+  const router = useRouter()
   const initialValues = spot
-  const handleSubmit = ...
-  const typeofform = spot.type 
+  const typeofform = spot.type
+
+  initialValues.numero = initialValues.adresse.numero
+  initialValues.rue = initialValues.adresse.rue
+  initialValues.ville = initialValues.adresse.ville
+  initialValues.codepostal = initialValues.adresse.codepostal
+  initialValues.pays = initialValues.adresse.pays
 
   return (
-    <>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-        <Form>
-          {typeofform === "Restaurant" && <FormRestaurant />}
-          {typeofform === "Bar" && <FormBar />}
-          {typeofform === "Parc" && <FormParc />}
-          {typeofform === "Musee" && <FormMusee />}
-        </Form>
-      </Formik>
-    </>
+    <div className="flex justify-center my-32">
+      <div>
+        <h1 className="text-7xl mb-6">MODIFIER LE SPOT</h1>
+
+        {typeofform === "Restaurant" && (
+          <UpdRestaurant initialValues={initialValues} />
+        )}
+        {typeofform === "Bar" && <UpdBar initialValues={initialValues} />}
+        {typeofform === "Parc" && <UpdParc initialValues={initialValues} />}
+        {typeofform === "Musee" && <UpdMusee initialValues={initialValues} />}
+      </div>
+    </div>
   )
 }
+
+export default SpotEditPage
