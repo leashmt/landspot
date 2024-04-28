@@ -1,14 +1,13 @@
-import { Inter } from "next/font/google"
 import axios from "axios"
 import { useState } from "react"
-import Link from "next/link"
 import { Formik, Form, Field } from "formik"
 import { FilterRestaurant } from "@/components/filter/filterRestaurant"
 import { FilterBar } from "@/components/filter/filterBar"
 import { FilterParc } from "@/components/filter/filterParc"
 import { FilterMusee } from "@/components/filter/filterMusee"
+import { HeroHeader } from "@/components/heroheader"
+import { CardSpot } from "@/components/cardSpot"
 
-const inter = Inter({ subsets: ["latin"] })
 const typeofspot = ["Aucun filtre", "Restaurant", "Musee", "Bar", "Parc"]
 
 function calculerNombreJours(dateAjout) {
@@ -94,74 +93,62 @@ const Home = (props) => {
   }
 
   return (
-    <>
-      <h1>LANDSPOT</h1>
-      <h2>Liste des derniers spot publiés</h2>
-      <h4>Filtrer la recherche</h4>
-      <Formik initialValues={initialValuesType} onSubmit={handleSubmitFilter}>
-        <Form>
-          <Field
-            name="type"
-            as="select"
-            className="text-xl w-1/2"
-            onChange={(event) => {
-              settypeofform(event.target.value)
+    <div id="red">
+      <HeroHeader />
+      <div className="p-12  rounded-b-2xl" id="bgpink">
+        <h2 style={{ fontFamily: "Sakalangkong" }} className="text-4xl">
+          Liste des {spot10.length} derniers spots publies
+        </h2>
+        <p className="italic mt-2">Filtrer la recherche</p>
+        <Formik initialValues={initialValuesType} onSubmit={handleSubmitFilter}>
+          <Form>
+            <Field
+              name="type"
+              as="select"
+              className="text-xl w-1/2"
+              onChange={(event) => {
+                settypeofform(event.target.value)
 
-              if (event.target.value === "Aucun filtre") {
-                setSpots(initialspots)
-              } else {
-                const spotsUPD = initialspots.filter(
-                  (spot) => spot.type === event.target.value,
-                )
-                setSpots(spotsUPD)
-              }
-            }}
-            value={typeofform}
-          >
-            {typeofspot.map((typeText, index) => (
-              <option key={index + 1} value={typeText}>
-                {typeText}
-              </option>
-            ))}
-          </Field>
-          {typeofform === "Restaurant" && <FilterRestaurant />}
-          {typeofform === "Bar" && <FilterBar />}
-          {typeofform === "Parc" && <FilterParc />}
-          {typeofform === "Musee" && <FilterMusee />}
-        </Form>
-      </Formik>
+                if (event.target.value === "Aucun filtre") {
+                  setSpots(initialspots)
+                } else {
+                  const spotsUPD = initialspots.filter(
+                    (spot) => spot.type === event.target.value,
+                  )
+                  setSpots(spotsUPD)
+                }
+              }}
+              value={typeofform}
+            >
+              {typeofspot.map((typeText, index) => (
+                <option key={index + 1} value={typeText}>
+                  {typeText}
+                </option>
+              ))}
+            </Field>
+            {typeofform === "Restaurant" && <FilterRestaurant />}
+            {typeofform === "Bar" && <FilterBar />}
+            {typeofform === "Parc" && <FilterParc />}
+            {typeofform === "Musee" && <FilterMusee />}
+          </Form>
+        </Formik>
 
-      {spot10.map((spot) => {
-        const nombreJours = calculerNombreJours(spot.dateajout)
+        <div className="grid gap-3 grid-cols-5 grid-rows-2 mt-5">
+          {spot10.reverse().map((spot) => {
+            const nombreJours = calculerNombreJours(spot.dateajout)
 
-        return (
-          <div key={spot._id} id="bg-blue" className="mx-5 my-2 p-3 rounded-lg">
-            <h3 className="text-lg mb-1">{spot.name}</h3>
-            <p>
-              Type : <span className="font-bold">{spot.type}</span>
-            </p>
-            <p className="italic">
-              {nombreJours > 0
-                ? `Publié il y a ${nombreJours} jours`
-                : "Publié aujourd'hui"}
-            </p>
-            <p>
-              {spot.adresse.numero} {spot.adresse.rue} {spot.adresse.ville} -{" "}
-              {spot.adresse.pays}
-            </p>
-            <div className="flex justify-end mt-2">
-              <Link
-                href={`/spots/${spot._id}`}
-                id="button-red"
-                className="rounded-lg p-2"
-              >
-                Voir les détails du spot
-              </Link>
-            </div>
-          </div>
-        )
-      })}
-    </>
+            return (
+              <CardSpot key={spot._id} spot={spot} nombreJours={nombreJours} />
+            )
+          })}
+        </div>
+        {spot10.length === 0 && (
+          <p className="italic text-red-600">
+            Aucun résultat pour cette recherche
+          </p>
+        )}
+      </div>
+    </div>
   )
 }
 

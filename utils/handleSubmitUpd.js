@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useRouter } from "next/router"
 
+// eslint-disable-next-line max-lines-per-function
 export const handleSubmitUpd = async ({
   _id,
   type,

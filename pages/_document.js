@@ -1,3 +1,4 @@
+import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import { Html, Head, Main, NextScript } from "next/document"
 
@@ -6,10 +7,11 @@ export default function Document() {
     <Html lang="fr">
       <Head />
       <Header></Header>
-      <body>
+      <body id="red">
         <Main />
         <NextScript />
       </body>
+      <Footer></Footer>
     </Html>
   )
 }

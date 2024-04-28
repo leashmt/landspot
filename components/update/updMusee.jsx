@@ -21,7 +21,12 @@ export const UpdMusee = ({ initialValues }) => (
           {touched.name && errors.name && (
             <div className="text-red-500">{errors.name}</div>
           )}
-          <h2 className="mt-4 text-4xl mb-2">Adresse du spot</h2>
+          <h2
+            className="mt-4 text-4xl mb-2"
+            style={{ fontFamily: "Sakalangkong" }}
+          >
+            Adresse du spot
+          </h2>
           <div className="flex justify-between gap-5">
             <Field
               name="numero"
@@ -72,7 +77,12 @@ export const UpdMusee = ({ initialValues }) => (
           {touched.pays && errors.pays && (
             <div className="text-red-500">{errors.pays}</div>
           )}
-          <h2 className="mt-4 text-4xl mb-2">Description</h2>
+          <h2
+            className="mt-4 text-4xl mb-2"
+            style={{ fontFamily: "Sakalangkong" }}
+          >
+            Description
+          </h2>
           <div className="flex justify-between">
             <p>Courant artistique</p>
             <Field name="courant" as="select">

@@ -1,6 +1,9 @@
 @font-face {
-  font-family: sakalongkong;
-  src: url("/styles/Sakalangkong.ttf") format("truetype");
+  font-family: 'Sakalangkong';
+  src: url('./Sakalangkong.ttf') format('truetype');
+  /* Autres propriétés de la police (optionnelles) */
+  font-weight: normal;
+  font-style: normal;
 }
 @tailwind base;
 @tailwind components;
@@ -8,10 +11,21 @@
 
 header {
   background-color: #D85651;
-  font-family: sakalongkong;
 }
 
 #header{
+  background-color: #FEF9FF;
+}
+
+#red {
+  background-color: #D85651;
+}
+
+#pink {
+  color: #FEF9FF;
+}
+
+#bgpink{
   background-color: #FEF9FF;
 }
 
@@ -29,7 +43,11 @@ header {
   background-color: #D85651;
 }
 
+#color-blue{
+  color: #55D6BE
+}
+
 .button{
-    color: #FEF9FF;
-    background-color: #55D6BE;
-  }
+  color: #FEF9FF;
+  background-color: #55D6BE;
+}

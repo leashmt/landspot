@@ -1,9 +1,9 @@
 import Link from "next/link"
 export const Header = () => (
-  <header className="p-2">
+  <header className="pt-2 pb-3">
     <div
       id="header"
-      className="flex py-1 pl-4 pr-2 rounded-full justify-between items-center"
+      className="mt-2 flex py-1 pl-4 pr-2 rounded-full justify-between items-center"
     >
       <div className="flex gap-2 flex-1">
         <Link href="/lstSpot" className="hover:cursor-pointer">
@@ -16,7 +16,10 @@ export const Header = () => (
           Lien 3
         </Link>
       </div>
-      <div className="flex-1 flex justify-center">
+      <div
+        className="flex-1 flex justify-center text-3xl"
+        style={{ fontFamily: "Sakalangkong" }}
+      >
         <Link href="/" className="hover:cursor-pointer">
           LANDSPOT
         </Link>

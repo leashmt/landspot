@@ -34,9 +34,11 @@ const SpotEditPage = ({ spot }) => {
   initialValues.pays = initialValues.adresse.pays
 
   return (
-    <div className="flex justify-center my-32">
+    <div className="flex justify-center py-32 bg-white">
       <div>
-        <h1 className="text-7xl mb-6">MODIFIER LE SPOT</h1>
+        <h1 className="text-8xl mb-6" style={{ fontFamily: "Sakalangkong" }}>
+          MODIFIER LE SPOT
+        </h1>
 
         {typeofform === "Restaurant" && (
           <UpdRestaurant initialValues={initialValues} />

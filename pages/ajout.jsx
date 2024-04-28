@@ -14,9 +14,11 @@ const PageAjout = () => {
   }
 
   return (
-    <div className="flex justify-center my-32">
+    <div className="flex justify-center py-32 bg-white">
       <div className="">
-        <h1 className="text-7xl mb-4">AJOUT D'UN SPOT</h1>
+        <h1 className="text-8xl mb-4" style={{ fontFamily: "Sakalangkong" }}>
+          AJOUT D'UN SPOT
+        </h1>
         <Formik initialValues={initialValuesType} onSubmit={handleSubmitType}>
           <Form className="text-2xl">
             <div className="flex justify-between">

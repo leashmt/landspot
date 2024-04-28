@@ -25,7 +25,12 @@ export const UpdRestaurant = ({ initialValues }) => (
           {touched.name && errors.name && (
             <div className="text-red-500">{errors.name}</div>
           )}
-          <h2 className="mt-4 text-4xl mb-2">Adresse du restaurant</h2>
+          <h2
+            className="mt-4 text-4xl mb-2"
+            style={{ fontFamily: "Sakalangkong" }}
+          >
+            Adresse du restaurant
+          </h2>
           <div className="flex justify-between gap-5">
             <Field
               name="numero"
@@ -76,7 +81,12 @@ export const UpdRestaurant = ({ initialValues }) => (
           {touched.pays && errors.pays && (
             <div className="text-red-500">{errors.pays}</div>
           )}
-          <h2 className="mt-4 text-4xl mb-2">Description</h2>
+          <h2
+            className="mt-4 text-4xl mb-2"
+            style={{ fontFamily: "Sakalangkong" }}
+          >
+            Description
+          </h2>
           <div className="flex justify-between">
             <p>Type de cuisine</p>
             <Field name="typelieu" as="select">
