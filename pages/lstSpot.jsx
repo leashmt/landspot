@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useState } from "react"
 import Link from "next/link"
+import { CardSpot } from "@/components/cardSpot"
 
 function calculerNombreJours(dateAjout) {
   const dateAjoutObj = new Date(dateAjout)
@@ -24,29 +25,23 @@ const PageListe = (props) => {
   const [spots, setSpots] = useState(initialspots)
 
   return (
-    <>
-      <h1>Tous les spots publiés</h1>
-      {spots.map((spot) => {
-        const nombreJours = calculerNombreJours(spot.dateajout)
+    <div id="bgpink" className="px-12 pb-16 rounded-b-2xl">
+      <h1
+        style={{ fontFamily: "Sakalangkong" }}
+        className="text-4xl pt-14 mb-7"
+      >
+        Tous les spots publies
+      </h1>
+      <div className="grid grid-cols-3 gap-5">
+        {spots.reverse().map((spot) => {
+          const nombreJours = calculerNombreJours(spot.dateajout)
 
-        return (
-          <div key={spot._id} id="bg-blue" className="mx-5 my-2 p-3 rounded-lg">
-            <h3>{spot.name}</h3>
-            <p>Type : xxx</p>
-            <p className="italic"> Publié il y a {nombreJours} jours</p>
-            <div className="flex justify-end mt-2">
-              <Link
-                href={`/spots/${spot._id}`}
-                id="button-red"
-                className="rounded-lg p-2"
-              >
-                Voir les détails du spot
-              </Link>
-            </div>
-          </div>
-        )
-      })}
-    </>
+          return (
+            <CardSpot key={spot._id} spot={spot} nombreJours={nombreJours} />
+          )
+        })}
+      </div>
+    </div>
   )
 }
 

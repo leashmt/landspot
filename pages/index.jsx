@@ -95,8 +95,8 @@ const Home = (props) => {
   return (
     <div id="red">
       <HeroHeader />
-      <div className="p-12  rounded-b-2xl" id="bgpink">
-        <h2 style={{ fontFamily: "Sakalangkong" }} className="text-4xl">
+      <div className="pt-12 pb-20 px-12 rounded-b-2xl" id="bgpink">
+        <h2 style={{ fontFamily: "Sakalangkong" }} className="text-4xl mt-14">
           Liste des {spot10.length} derniers spots publies
         </h2>
         <p className="italic mt-2">Filtrer la recherche</p>

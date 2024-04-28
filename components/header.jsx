@@ -3,7 +3,7 @@ export const Header = () => (
   <header className="pt-2 pb-3">
     <div
       id="header"
-      className="mt-2 flex py-1 pl-4 pr-2 rounded-full justify-between items-center"
+      className="mt-2 mx-3 flex py-1 pl-4 pr-2 rounded-full justify-between items-center"
     >
       <div className="flex gap-2 flex-1">
         <Link href="/lstSpot" className="hover:cursor-pointer">
