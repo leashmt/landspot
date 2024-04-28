@@ -26,6 +26,17 @@ const SpotEditPage = ({ spot }) => {
   const router = useRouter()
   const initialValues = spot
   const typeofform = spot.type
+  const handleDelete = async (id) => {
+    // eslint-disable-next-line no-alert
+    const isConfirmed = window.confirm(
+      "Êtes-vous sûr de vouloir supprimer ce spot ?",
+    )
+
+    if (isConfirmed) {
+      await axios.delete(`/api/landspot/${id}`)
+      router.push(`/lstSpot`)
+    }
+  }
 
   initialValues.numero = initialValues.adresse.numero
   initialValues.rue = initialValues.adresse.rue
@@ -46,6 +57,15 @@ const SpotEditPage = ({ spot }) => {
         {typeofform === "Bar" && <UpdBar initialValues={initialValues} />}
         {typeofform === "Parc" && <UpdParc initialValues={initialValues} />}
         {typeofform === "Musee" && <UpdMusee initialValues={initialValues} />}
+        <button
+          onClick={() => {
+            handleDelete(spot._id)
+          }}
+          className="flex justify-center w-full rounded-full my-10 py-2"
+          id="button"
+        >
+          Supprimer le spot
+        </button>
       </div>
     </div>
   )

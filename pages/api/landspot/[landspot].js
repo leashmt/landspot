@@ -1,9 +1,9 @@
+/* eslint-disable no-unused-vars */
 import { createRoute } from "@/api/createroute"
 import { LandSpotModel } from "@/database/models/landSpotModel"
 
 export const handler = createRoute(async (req, res) => {
   const { landspot } = req.query
-  //const spot = await LandSpotModel.findOne({ _id: landspot })
   const spot = await LandSpotModel.findById(landspot)
 
   if (!spot) {
@@ -41,7 +41,6 @@ export const handler = createRoute(async (req, res) => {
     } = req.body
     const keys = Object.keys(req.body)
 
-    console.log("-----------")
     keys.forEach((key) => {
       if (req.body[key]) {
         spot[key] = req.body[key]
@@ -53,6 +52,12 @@ export const handler = createRoute(async (req, res) => {
     res.send(spot)
 
     return
+  }
+
+  if (req.method === "DELETE") {
+    await spot.deleteOne()
+
+    res.send(spot)
   }
 })
 
