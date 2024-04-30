@@ -7,6 +7,7 @@ import { FilterParc } from "@/components/filter/filterParc"
 import { FilterMusee } from "@/components/filter/filterMusee"
 import { HeroHeader } from "@/components/heroheader"
 import { CardSpot } from "@/components/cardSpot"
+import Link from "next/link"
 
 const typeofspot = ["Aucun filtre", "Restaurant", "Musee", "Bar", "Parc"]
 
@@ -33,7 +34,6 @@ const Home = (props) => {
   const [spots, setSpots] = useState(initialspots)
   const spot10 = spots.length > 10 ? spots.slice(spots.length - 10) : spots
   const [typeofform, settypeofform] = useState("Choisir un type de spot")
-  const handleSubmitType = () => {}
   const initialValuesType = {
     type: typeofform,
   }
@@ -147,6 +147,11 @@ const Home = (props) => {
             Aucun résultat pour cette recherche
           </p>
         )}
+        <div className="flex justify-end mt-5">
+          <Link href={`/lstSpot`} id="button-red" className="rounded-lg p-2">
+            Voir tous les spots
+          </Link>
+        </div>
       </div>
     </div>
   )

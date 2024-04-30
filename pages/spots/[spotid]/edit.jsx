@@ -43,6 +43,11 @@ const SpotEditPage = ({ spot }) => {
   initialValues.ville = initialValues.adresse.ville
   initialValues.codepostal = initialValues.adresse.codepostal
   initialValues.pays = initialValues.adresse.pays
+  initialValues.courant = initialValues.courantArt
+  initialValues.typeart = initialValues.typelieu
+  initialValues.prix = initialValues.gratuitPayant
+
+  console.log(initialValues)
 
   return (
     <div className="flex justify-center py-32 bg-white">

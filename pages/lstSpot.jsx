@@ -1,6 +1,4 @@
 import axios from "axios"
-import { useState } from "react"
-import Link from "next/link"
 import { CardSpot } from "@/components/cardSpot"
 
 function calculerNombreJours(dateAjout) {
@@ -22,7 +20,7 @@ export const getServerSideProps = async () => {
 }
 const PageListe = (props) => {
   const { spots: initialspots } = props
-  const [spots, setSpots] = useState(initialspots)
+  const spots = initialspots
 
   return (
     <div id="bgpink" className="px-12 pb-16 rounded-b-2xl">
@@ -33,7 +31,7 @@ const PageListe = (props) => {
         Tous les spots publies
       </h1>
       <div className="grid grid-cols-3 gap-5">
-        {spots.reverse().map((spot) => {
+        {spots.map((spot) => {
           const nombreJours = calculerNombreJours(spot.dateajout)
 
           return (
