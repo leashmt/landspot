@@ -28,7 +28,6 @@ export const getServerSideProps = async () => {
 const PageListe = (props) => {
   const { spots: initialspots } = props
   const typeofspot = ["Aucun filtre", "Restaurant", "Musee", "Bar", "Parc"]
-  // const spots = initialspots
   const [spots, setSpots] = useState(initialspots)
   const [typeofform, settypeofform] = useState("Choisir un type de spot")
   const initialValuesType = {
