@@ -14,7 +14,7 @@ const PageAjout = () => {
   }
 
   return (
-    <div className="flex justify-center py-32 bg-white">
+    <div className="flex justify-center py-32 bg-white min-h-screen">
       <div className="">
         <h1 className="text-8xl mb-4" style={{ fontFamily: "Sakalangkong" }}>
           AJOUT D'UN SPOT

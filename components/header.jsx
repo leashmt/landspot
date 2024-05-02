@@ -9,12 +9,6 @@ export const Header = () => (
         <Link href="/lstSpot" className="hover:cursor-pointer">
           Tous les spots
         </Link>
-        <Link href="/" className="hover:cursor-pointer">
-          Trouver un spot
-        </Link>
-        <Link href="/" className="hover:cursor-pointer">
-          Lien 3
-        </Link>
       </div>
       <div
         className="flex-1 flex justify-center text-3xl"
