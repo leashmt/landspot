@@ -37,3 +37,5 @@ DB_URL = "URL_de_votre_base_de_données_MongoDB"
 ```bash
  npm run dev
 ```
+
+6. Accédez à l'application dans votre navigateur à l'adresse http://localhost:3000.
