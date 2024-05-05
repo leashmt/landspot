@@ -1,3 +1,4 @@
+/* eslint-disable no-empty-function */
 import { FormBar } from "@/components/ajoutBar"
 import { FormMusee } from "@/components/ajoutMusee"
 import { FormParc } from "@/components/ajoutParc"

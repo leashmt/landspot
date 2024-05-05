@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 export const HeroHeader = () => (
   <div className="  bg-white">
     <div

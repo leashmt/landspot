@@ -2,18 +2,10 @@ import { UpdBar } from "@/components/update/updBar"
 import { UpdMusee } from "@/components/update/updMusee"
 import { UpdParc } from "@/components/update/updParc"
 import { UpdRestaurant } from "@/components/update/updRestaurant"
-import {
-  validationSchemaBar,
-  validationSchemaMusee,
-  validationSchemaParc,
-  validationSchemaRestaurant,
-} from "@/utils/validationSchema"
 import axios from "axios"
-import { Form, Formik } from "formik"
 import { useRouter } from "next/router"
 
 export const getServerSideProps = async ({ params: { spotid } }) => {
-  console.log(spotid)
   const { data: spot } = await axios(
     `http://localhost:3000/api/landspot/${spotid}`,
   )
@@ -46,8 +38,6 @@ const SpotEditPage = ({ spot }) => {
   initialValues.courant = initialValues.courantArt
   initialValues.typeart = initialValues.typelieu
   initialValues.prix = initialValues.gratuitPayant
-
-  console.log(initialValues)
 
   return (
     <div className="flex justify-center py-32 bg-white">

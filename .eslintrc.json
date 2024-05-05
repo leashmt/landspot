@@ -83,7 +83,6 @@
     "max-params": ["error", 3],
     "multiline-comment-style": ["error", "separate-lines"],
     "new-cap": "error",
-    "no-alert": "error",
     "no-bitwise": "error",
     "no-caller": "error",
     "no-console": "error",

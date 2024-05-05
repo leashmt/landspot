@@ -1,5 +1,4 @@
 import axios from "axios"
-import { useRouter } from "next/router"
 
 // eslint-disable-next-line max-lines-per-function
 export const handleSubmitUpd = async ({
@@ -24,29 +23,6 @@ export const handleSubmitUpd = async ({
   etatparc,
   rapportQP,
 }) => {
-  console.log("--envoie de la requête--")
-  console.log({
-    _id,
-    type,
-    name,
-    numero,
-    rue,
-    ville,
-    pays,
-    cuisine,
-    note,
-    qualite,
-    dateajout,
-    codepostal,
-    typelieu,
-    prix,
-    niveauPrix,
-    courant,
-    typeart,
-    typeparc,
-    etatparc,
-    rapportQP,
-  })
   await axios.patch(`/api/landspot/${_id}`, {
     type,
     name,
@@ -68,6 +44,5 @@ export const handleSubmitUpd = async ({
     etatparc,
     rapportQP,
   })
-
-  console.log("fin du handlesubmit")
+  alert("Le spot a été modifié.")
 }

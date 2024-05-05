@@ -6,11 +6,7 @@ import { handleSubmitUpd } from "@/utils/handleSubmitUpd"
 
 export const UpdBar = ({ initialValues }) => (
   <>
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmitUpd}
-      // validationSchema={validationSchemaBar}
-    >
+    <Formik initialValues={initialValues} onSubmit={handleSubmitUpd}>
       {({ errors, touched }) => (
         <Form className="text-2xl my-2">
           <div className="flex justify-between">

@@ -3,15 +3,10 @@ import { Field, Form, Formik } from "formik"
 import { ButtonForm } from "@/components/buttonForm"
 import { sortofcuisine } from "@/utils/sortofcuisine"
 import { handleSubmitUpd } from "@/utils/handleSubmitUpd"
-import { validationSchemaRestaurant } from "@/utils/validationSchema"
 
 export const UpdRestaurant = ({ initialValues }) => (
   <>
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmitUpd}
-      // validationSchema={validationSchemaRestaurant}
-    >
+    <Formik initialValues={initialValues} onSubmit={handleSubmitUpd}>
       {({ errors, touched }) => (
         <Form className="text-2xl my-2">
           <div className="flex justify-between">

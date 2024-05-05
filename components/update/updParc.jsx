@@ -6,11 +6,7 @@ import { handleSubmitUpd } from "@/utils/handleSubmitUpd"
 
 export const UpdParc = ({ initialValues }) => (
   <>
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmitUpd}
-      //validationSchema={validationSchemaParc}
-    >
+    <Formik initialValues={initialValues} onSubmit={handleSubmitUpd}>
       {({ errors, touched, values }) => (
         <Form className="text-2xl my-2">
           <div className="flex justify-between">
@@ -84,7 +80,7 @@ export const UpdParc = ({ initialValues }) => (
           </h2>
           <div className="flex justify-between">
             <p>Type de parc</p>
-            <Field name="typeparc" as="select">
+            <Field name="typelieu" as="select">
               {sortofparc.map((sort, index) => (
                 <option key={index + 1} value={sort}>
                   {sort}
@@ -125,7 +121,7 @@ export const UpdParc = ({ initialValues }) => (
           {values.prix === "payant" && (
             <div className="flex justify-between my-2">
               <p>Niveau du prix</p>
-              <Field name="niveauPrix" as="select">
+              <Field name="nivPrix" as="select">
                 {[
                   "5 - €€€€€",
                   "4 - €€€€",

@@ -2,8 +2,6 @@
 const { createRoute } = require("@/api/createroute")
 const { LandSpotModel } = require("@/database/models/landSpotModel")
 const handler = createRoute(async (req, res) => {
-  console.log(req.body)
-
   if (req.method === "POST") {
     if (req.body.type === "Restaurant") {
       const {
@@ -127,8 +125,6 @@ const handler = createRoute(async (req, res) => {
     const todos = await LandSpotModel.find(type ? { type } : {})
 
     res.send(todos)
-
-    return
   }
 })
 export default handler

@@ -33,7 +33,7 @@ export const handler = createRoute(async (req, res) => {
       codepostal,
       typelieu,
       prix,
-      niveauPrix,
+      nivPrix,
       courant,
       typeart,
       typeparc,
@@ -41,6 +41,8 @@ export const handler = createRoute(async (req, res) => {
     } = req.body
     const keys = Object.keys(req.body)
 
+    console.log("upd")
+    console.log(req.body)
     keys.forEach((key) => {
       if (req.body[key]) {
         spot[key] = req.body[key]
@@ -49,6 +51,7 @@ export const handler = createRoute(async (req, res) => {
 
     await spot.save()
 
+    console.log(spot)
     res.send(spot)
 
     return

@@ -7,11 +7,7 @@ import { handleSubmitUpd } from "@/utils/handleSubmitUpd"
 
 export const UpdMusee = ({ initialValues }) => (
   <>
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmitUpd}
-      //validationSchema={validationSchemaMusee}
-    >
+    <Formik initialValues={initialValues} onSubmit={handleSubmitUpd}>
       {({ errors, touched, values }) => (
         <Form className="text-2xl my-2">
           <div className="flex justify-between">
